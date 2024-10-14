@@ -1,0 +1,111 @@
+.sidebar-nav
+  display: flex
+  flex-direction: row
+  align-items: center
+  justify-content: space-evenly
+  position: fixed
+  padding: 1em 0
+  bottom: 0
+  left: 0
+  width: 100%
+  height: 60px
+  background-color: var(--generic-components-ui-sidebar-nav-bgColor, #ddd)
+
+  @media (min-width: 768px)
+    justify-content: flex-start
+    backdrop-filter: none
+    gap: 1rem
+    flex-direction: column
+    width: 70px
+    height: 100%
+    top: 0
+    left: 0
+
+.sidebar-nav__logo
+  display: none
+  color: var(--generic-components-ui-sidebar-nav-logoColor, #666)
+
+  @media (min-width: 768px)
+    display: block
+
+.sidebar-nav__btn
+  position: relative
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: column
+  margin: 0 0.5em
+  gap: 0.35rem
+  cursor: pointer
+  background-color: transparent
+  border: none
+  border-radius: 0.714em
+  transition: .2s background-color
+
+  @media (min-width: 768px)
+    width: calc(100% - 1.3em)
+    aspect-ratio: 1/1
+    flex-direction: row
+    flex-wrap: nowrap
+    gap: 0
+
+  &:hover
+    color: var(--generic-components-ui-sidebar-nav-button-activeColorMobile, #0061ca)
+    @media (min-width: 768px)
+      color: var(--generic-components-ui-sidebar-nav-button-hoverColor, #000)
+    .sidebar-nav__btn__label
+      transform: scaleX(1)
+      opacity: 1
+      transition: .3s transform, .3s opacity, .3s outline-color
+      @media (min-width: 768px)
+        outline: 1px solid var(--generic-components-ui-sidebar-nav-outlineColor, hsl(0, 0%, 80%))
+    .sidebar-nav__btn__label__inner
+      opacity: 1
+      transition: .2s .25s opacity
+
+  &--is-active
+    cursor: default
+    color: var(--generic-components-ui-sidebar-nav-button-activeColorMobile, #0061ca)
+    @media (min-width: 768px)
+      pointer-events: none
+      color: var(--generic-components-ui-sidebar-nav-button-activeColor, #000)
+      background-color: var(--generic-components-ui-sidebar-nav-button-activeBgColor, #ccc)
+      outline: 1px solid var(--generic-components-ui-sidebar-nav-outlineColor, hsl(0, 0%, 80%))
+
+      &:hover
+        color: #000
+
+  svg
+    flex-shrink: 0
+    display: block
+    z-index: 1
+    width: 1.5rem
+
+    @media (min-width: 768px)
+      width: unset
+
+.sidebar-nav__btn__label
+  display: block
+  @media (min-width: 768px)
+    display: flex
+    align-items: center
+    position: absolute
+    left: 0
+    width: max-content
+    opacity: 0
+    transform: scaleX(0)
+    transform-origin: left
+    transition: .3s .05s transform, .3s .05s opacity, .3s .05s outline-color
+    padding: 0 1.5em 0 100%
+    border-radius: 0.714em
+    height: 100%
+    background-color: var(--generic-components-ui-sidebar-nav-button-activeBgColor, #ccc)
+    outline: 1px solid transparent
+
+.sidebar-nav__btn__label__inner
+  font-weight: 600
+  font-size: 0.9rem
+  @media (min-width: 768px)
+    opacity: 0
+    font-size: 1rem
+    transition: .1s 0 opacity

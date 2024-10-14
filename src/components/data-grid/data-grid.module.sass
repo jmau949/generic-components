@@ -1,0 +1,89 @@
+.dataGrid__cellInput
+  flex-grow: 1
+  appearance: none
+  -webkit-appearance: none
+  -moz-appearance: textfield
+  width: 0
+  background: transparent
+  border: none
+  padding: 0.45em
+  margin: -0.45em
+  font: inherit
+  border-radius: 3px
+
+  &:not([readonly]):hover
+    background-color: var(--generic-components-ui-table-cellHoverBgColor, rgba(0, 0, 0, 0.05))
+
+  &:focus
+    background-color: var(--generic-components-ui-table-cellFocusBgColor, #fff) !important
+    outline-color: var(--generic-components-ui-table-cellFocusOutline, #007BFF)
+    outline-style: solid
+    outline-width: 2px
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-calendar-picker-indicator
+    display: none
+    -webkit-appearance: none
+
+  &:read-only:focus
+    outline: none
+
+.dataGrid__row
+  position: relative
+
+.dataGrid__cellInput--right
+  text-align: right
+
+.dataGrid__row:focus-within
+  background-color: var(--generic-components-ui-table-cellFocusBgColor, #fff)
+  box-shadow: 0.142rem 0.214rem 0.714rem rgba(0, 0, 0, 0.1)
+
+  .dataGrid__deleteBtn
+    visibility: visible
+    pointer-events: all
+
+.dataGrid__deleteBtn
+  visibility: hidden
+  pointer-events: none
+  position: absolute
+  right: 1px
+  top: 50%
+  margin-top: -1px
+  transform: translate(100%, -50%)
+  background-color: var(--generic-components-ui-table-cellFocusBgColor, #fff)
+  height: calc(100% - 2px)
+  display: flex
+  align-items: center
+  justify-content: center
+  padding-left: 0.85em
+  padding-right: 0.85em
+  box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.1)
+
+  &:before
+    content: ''
+    display: block
+    position: absolute
+    top: 0
+    left: 0
+    background: var(--generic-components-ui-table-cellFocusBgColor, #fff)
+    width: 0.5rem
+    height: 100%
+    transform: translateX(-100%)
+
+@media (max-width: 640px)
+  .dataGrid__deleteBtn
+    display: none
+
+  .dataGrid__cellInput
+    width: 100%
+    text-align: left
+    &:not([readonly])
+      background-color: var(--generic-components-ui-table-cellHoverBgColor, rgba(0, 0, 0, 0.05))
+
+
+  .dataGrid__cellInput--unit
+    padding-right: 1.6rem
+
+  .dataGrid__row:focus-within
+    background-color: var(--generic-components-ui-table-bgColor, #F9F9F9)
+    box-shadow: none

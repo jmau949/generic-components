@@ -12,9 +12,9 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, "src/main.ts"),
-      name: "bw-ui",
+      name: "generic-components",
       formats: ["es"],
-      fileName: "bw-ui",
+      fileName: "generic-components",
     },
     rollupOptions: {
       external: ["react", "react/jsx-runtime"],
